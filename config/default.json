@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://admin:9oN0$Vw$@ds127961.mlab.com:27961/sportify"
+  "mongodb": "mongodb://admin:9oN0$Vw$@ds127961.mlab.com:27961/sportify",
+  "authentication": {
+    "secret": "19cf9c3b075cfb431ba690e99b5184205db014ff86acbc127ef640f70c72a38af143078fa12ea168f5c7042393a89eec1d1012d4689c058484d6829a0c489b8b3d6a15c37ff88a469cb265583470e57c89094873d04cfd89012e53f030ea1be6e8446444888c37874e95e296a1e2b63edc9c6e24653a6f2f18d5c7cb86425437043aef232141e71d1b3e50cfe90d3b09507cbeae728d3e9c328003d68add8afe4f9fd4d82b0cd3a1ecb6cc75080959cc0e400502bf88f93c01b757a053bd2f974458db064187cac0c8b21b854f0dfaf403f0547d9320b36c947e1493d45fcd07c05e66b8e5edaf0871c3c88d4471eb354baf65d9152f9b3fad6be2afe4c7b16c",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }
